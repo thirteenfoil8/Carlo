@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d9c1922b-1aec-4fa6-af80-f9b926bb87d5}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>example_circularroad.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="carlo1.png" />
+    <Content Include="carlo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="agents.py" />
+    <Compile Include="entities.py" />
+    <Compile Include="example_circularroad.py" />
+    <Compile Include="example_intersection.py" />
+    <Compile Include="geometry.py" />
+    <Compile Include="graphics.py" />
+    <Compile Include="interactive_controllers.py" />
+    <Compile Include="visualizer.py" />
+    <Compile Include="world.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
