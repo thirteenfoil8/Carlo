@@ -5,13 +5,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d9c1922b-1aec-4fa6-af80-f9b926bb87d5}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>train.py</StartupFile>
+    <StartupFile>PPO\train.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>CondaEnv|CondaEnv|logitech</InterpreterId>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,26 +22,43 @@
   <ItemGroup>
     <Content Include="carlo1.png" />
     <Content Include="carlo2.png" />
+    <Content Include="DQN\param\ppo_net_params.pkl" />
+    <Content Include="DQN\param\ppo_net_params_1.pkl" />
+    <Content Include="DQN\param\ppo_net_params_2.pkl" />
+    <Content Include="PPO\param\ppo_net_params.pkl" />
+    <Content Include="PPO\param\ppo_net_params_1.pkl" />
+    <Content Include="PPO\param\ppo_net_params_2.pkl" />
+    <Content Include="PPO\__pycache__\agent.cpython-39.pyc" />
+    <Content Include="PPO\__pycache__\network.cpython-39.pyc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="agents.py" />
+    <Compile Include="DQN\agent.py" />
+    <Compile Include="DQN\network.py" />
+    <Compile Include="DQN\train.py" />
     <Compile Include="entities.py" />
-    <Compile Include="agent.py" />
     <Compile Include="example_intersection.py" />
     <Compile Include="geometry.py" />
     <Compile Include="graphics.py" />
     <Compile Include="interactive_controllers.py" />
-    <Compile Include="network.py">
+    <Compile Include="PPO\agent.py" />
+    <Compile Include="PPO\network.py" />
+    <Compile Include="PPO\test.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="train.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="PPO\train.py" />
     <Compile Include="visualizer.py" />
     <Compile Include="world.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="CondaEnv|CondaEnv|logitech" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DQN\" />
+    <Folder Include="DQN\param\" />
+    <Folder Include="PPO\" />
+    <Folder Include="PPO\param\" />
+    <Folder Include="PPO\__pycache__\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

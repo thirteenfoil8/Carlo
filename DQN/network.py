@@ -22,13 +22,13 @@ class DQN(nn.Module):
             nn.Conv1d(128, 256, kernel_size=1, stride=1),
             nn.ReLU(),  # activation
         )  # output shape (256, 1, 1)
-        self.v = nn.Sequential(nn.Linear(256, 100), nn.ReLU(), nn.Linear(100, 2))
+        self.v = nn.Sequential(nn.Linear(256, 100), nn.ReLU(), nn.Linear(100, 5))
 
     # Called with either one element to determine next action, or a batch
     # during optimization. Returns tensor([[left0exp,right0exp]...]).
     @staticmethod
     def _weights_init(m):
-        if isinstance(m, nn.Conv1d):
+        if isinstance(m, nn.conv1d):
             nn.init.xavier_uniform_(m.weight, gain=nn.init.calculate_gain('relu'))
 
     def forward(self, x):

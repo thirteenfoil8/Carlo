@@ -3,13 +3,15 @@ import argparse
 import numpy as np
 import gym
 import torch
-from agent import Agent,Env
-from network import DQN
+from DQN.agent import Agent,Env
+from DQN.network import DQN
 vis = False
+ACTIONS = [[0,0],[0.5,0.0],[-0.5,0.],[0.,1.5],[0.,-1.5]]
 
 if __name__ == "__main__":
     agent = Agent()
     env = Env()
+
     training_records = []
     running_score = 0
     best_score = 0
@@ -25,19 +27,18 @@ if __name__ == "__main__":
             if env.die :
                 score += reward
                 break
-            if agent.store((state, action, reward, state_)):
+            if agent.store((state, ACTIONS.index(action), reward, state_)):
                 agent.update()
                 print('update')
+                print(agent.eps)
             score += reward
             state = state_
-        running_score += score
+        running_score = running_score * 0.99 + score * 0.01
         #print('Score: {:.2f}, Action taken: {}'.format(score, t+1))
         if i_ep % 10 == 0:
-            if running_score/10 > best_score:
-                best_score = running_score/10
-                print('NEW BEST SCORE : {:.2f}'.format(best_score))
-            print('Ep {}\tLast score: {:.2f}\tMoving average score: {:.2f}'.format(i_ep, score, running_score/10))
-            running_score = 0
+
+            print('Ep {}\tLast score: {:.2f}\tMoving average score: {:.2f}'.format(i_ep, score, running_score))
+            agent.save_param()
 
             agent.save_param()
 
